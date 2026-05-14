@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta content="Maison Éliane, institut de beauté premium fictif à Riaillé, proche Châteaubriant, Nort-sur-Erdre, Ancenis et alentours." name="description"/>
+<title>Maison Éliane — Institut de beauté à Riaillé</title>
+<style>
+    :root {
+      --ivory: #f8f3eb;
+      --linen: #efe5da;
+      --nude: #d9c5b6;
+      --taupe: #958171;
+      --deep: #181411;
+      --ink: #2a2420;
+      --muted: #76685f;
+      --gold: #b89b66;
+      --white: #fffaf3;
+      --line: rgba(42, 36, 32, .13);
+      --shadow: 0 28px 80px rgba(24, 20, 17, .08);
+      --soft: cubic-bezier(.22, 1, .36, 1);
+      --serif: "Cormorant Garamond", "Times New Roman", serif;
+      --sans: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; overflow-x: hidden; }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 15% 5%, rgba(184, 155, 102, .11), transparent 28rem),
+        linear-gradient(180deg, var(--ivory), #fbf7f1 42%, #f2e8dc);
+      overflow-x: hidden;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    body.menu-open { overflow: hidden; }
+
+    img { max-width: 100%; display: block; }
+    a { color: inherit; text-decoration: none; }
+    button, input, textarea, select { font: inherit; }
+    ::selection { background: rgba(184, 155, 102, .28); }
+
+    .grain {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 100;
+      opacity: .28;
+      background-image:
+        url("data:image/svg+xml,%3Csvg viewBox='0 0 220 220' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)' opacity='.20'/%3E%3C/svg%3E");
+      mix-blend-mode: multiply;
+    }
+
+    .wrap { width: min(1120px, calc(100% - 38px)); margin-inline: auto; }
+    .eyebrow {
+      display: inline-flex;
+      gap: .8rem;
+      align-items: center;
+      color: var(--taupe);
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      font-size: .68rem;
+      font-weight: 600;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 2.4rem;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold));
+    }
+    h1, h2, h3 {
+      margin: 0;
+      font-family: var(--serif);
+      font-weight: 400;
+      line-height: .98;
+      color: var(--deep);
+    }
+    h1 { font-size: clamp(3.4rem, 12vw, 8.6rem); letter-spacing: -.075em; }
+    h2 { font-size: clamp(2.7rem, 7vw, 6rem); letter-spacing: -.055em; }
+    h3 { font-size: clamp(1.65rem, 4vw, 3rem); letter-spacing: -.035em; }
+    p { margin: 0; }
+    .lead {
+      font-size: clamp(1.04rem, 1.8vw, 1.25rem);
+      color: var(--muted);
+      max-width: 40rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 3.15rem;
+      padding: .9rem 1.35rem;
+      border-radius: 999px;
+      border: 1px solid rgba(24, 20, 17, .18);
+      background: var(--deep);
+      color: var(--white);
+      letter-spacing: .03em;
+      font-size: .9rem;
+      transition: transform .5s var(--soft), background .5s var(--soft), border-color .5s var(--soft), color .5s var(--soft);
+      cursor: pointer;
+    }
+    .btn:hover { transform: translateY(-2px); background: #2b211b; }
+    .btn.alt { background: rgba(255, 250, 243, .54); color: var(--deep); backdrop-filter: blur(12px); }
+    .btn.alt:hover { background: var(--white); border-color: rgba(184, 155, 102, .55); }
+    .link {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: .8rem;
+      color: var(--deep);
+      font-size: .88rem;
+      letter-spacing: .04em;
+    }
+    .link::after {
+      content: "";
+      width: 2.9rem;
+      height: 1px;
+      background: var(--gold);
+      transform-origin: left;
+      transition: transform .45s var(--soft);
+    }
+    .link:hover::after { transform: scaleX(1.35); }
+
+    header {
+      position: fixed;
+      z-index: 50;
+      top: 0;
+      left: 0;
+      right: 0;
+      padding: .85rem 0;
+      transition: background .45s var(--soft), border-color .45s var(--soft), padding .45s var(--soft);
+      border-bottom: 1px solid transparent;
+    }
+    header.scrolled {
+      background: rgba(248, 243, 235, .82);
+      backdrop-filter: blur(18px);
+      border-color: rgba(42, 36, 32, .08);
+      padding: .55rem 0;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+    .brand {
+      display: grid;
+      gap: .05rem;
+      line-height: 1;
+      color: var(--deep);
+    }
+    .brand strong {
+      font-family: var(--serif);
+      font-size: 1.65rem;
+      font-weight: 400;
+      letter-spacing: -.045em;
+    }
+    .brand span {
+      font-size: .62rem;
+      text-transform: uppercase;
+      letter-spacing: .22em;
+      color: var(--taupe);
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.55rem;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      color: rgba(42, 36, 32, .75);
+    }
+    .nav-links a {
+      position: relative;
+      padding: .7rem 0;
+    }
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: .35rem;
+      height: 1px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform .35s var(--soft);
+    }
+    .nav-links a:hover::after { transform: scaleX(1); transform-origin: left; }
+    .nav-actions { display: flex; gap: .7rem; align-items: center; }
+    .mini-call {
+      border: 1px solid rgba(24, 20, 17, .12);
+      border-radius: 999px;
+      padding: .75rem 1rem;
+      font-size: .78rem;
+      letter-spacing: .08em;
+      background: rgba(255, 250, 243, .42);
+    }
+    .burger {
+      display: none;
+      width: 2.9rem;
+      height: 2.9rem;
+      border: 1px solid rgba(24,20,17,.12);
+      border-radius: 50%;
+      background: rgba(255,250,243,.55);
+      position: relative;
+    }
+    .burger span {
+      position: absolute;
+      left: .82rem;
+      right: .82rem;
+      height: 1px;
+      background: var(--deep);
+      transition: transform .35s var(--soft), top .35s var(--soft);
+    }
+    .burger span:first-child { top: 1.08rem; }
+    .burger span:last-child { top: 1.72rem; }
+    .menu-open .burger span:first-child { top: 1.4rem; transform: rotate(42deg); }
+    .menu-open .burger span:last-child { top: 1.4rem; transform: rotate(-42deg); }
+
+    .hero {
+      min-height: 100svh;
+      display: grid;
+      align-items: end;
+      padding: 8rem 0 3rem;
+      position: relative;
+      isolation: isolate;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      overflow: hidden;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 58% center;
+      transform: scale(1.04);
+      filter: saturate(.9) contrast(.92);
+    }
+    .hero-bg::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(90deg, rgba(248,243,235,.95) 0%, rgba(248,243,235,.72) 37%, rgba(248,243,235,.18) 72%),
+        linear-gradient(0deg, rgba(24,20,17,.18), transparent 36%),
+        rgba(217,197,182,.18);
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(260px, .45fr);
+      gap: 2.2rem;
+      align-items: end;
+    }
+    .hero-copy {
+      padding-bottom: 5vh;
+      max-width: 51rem;
+    }
+    .hero-copy .lead { margin: 1.6rem 0 2rem; }
+    .hero-card {
+      width: min(100%, 21rem);
+      justify-self: end;
+      background: rgba(255, 250, 243, .72);
+      backdrop-filter: blur(22px);
+      border: 1px solid rgba(255, 250, 243, .55);
+      border-radius: 2rem;
+      padding: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .hero-card img {
+      height: 15rem;
+      width: 100%;
+      object-fit: cover;
+      object-position: center 58%;
+      border-radius: 1.45rem;
+      filter: saturate(.84);
+    }
+    .hero-card p {
+      padding: 1.1rem .45rem .25rem;
+      color: var(--muted);
+      font-size: .92rem;
+    }
+    .hero-cta { display: flex; flex-wrap: wrap; gap: .8rem; align-items: center; }
+
+    section { padding: clamp(5.5rem, 10vw, 9rem) 0; position: relative; }
+    .intro {
+      display: grid;
+      grid-template-columns: .72fr 1fr;
+      gap: clamp(2.5rem, 8vw, 7rem);
+      align-items: center;
+    }
+    .intro-art {
+      position: relative;
+      min-height: 33rem;
+    }
+    .intro-art .tall {
+      width: 70%;
+      height: 31rem;
+      object-fit: cover;
+      border-radius: 12rem 12rem 1.2rem 1.2rem;
+      filter: saturate(.82);
+    }
+    .intro-art .small {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 48%;
+      height: 18rem;
+      object-fit: cover;
+      border: .72rem solid var(--ivory);
+      border-radius: 1.5rem;
+      box-shadow: var(--shadow);
+    }
+    .intro-text {
+      display: grid;
+      gap: 1.4rem;
+    }
+    .signature {
+      margin-top: .8rem;
+      padding-left: 1.1rem;
+      border-left: 1px solid rgba(184,155,102,.55);
+      color: var(--muted);
+      font-size: .98rem;
+      max-width: 33rem;
+    }
+
+    .services {
+      background: linear-gradient(180deg, rgba(239,229,218,.62), rgba(248,243,235,0));
+      border-top: 1px solid rgba(42,36,32,.08);
+      border-bottom: 1px solid rgba(42,36,32,.06);
+    }
+    .section-head {
+      display: grid;
+      grid-template-columns: 1fr .72fr;
+      gap: 2rem;
+      align-items: end;
+      margin-bottom: clamp(2.5rem, 7vw, 5rem);
+    }
+    .service-rail {
+      display: grid;
+      gap: 1px;
+      background: rgba(42,36,32,.10);
+      border: 1px solid rgba(42,36,32,.10);
+    }
+    .service-row {
+      display: grid;
+      grid-template-columns: .26fr .34fr 1fr .44fr;
+      min-height: 11.2rem;
+      background: rgba(255,250,243,.58);
+      transition: background .45s var(--soft);
+    }
+    .service-row:hover { background: rgba(255,250,243,.9); }
+    .service-row > * { padding: clamp(1.15rem, 3vw, 2.2rem); }
+    .service-row .num {
+      font-family: var(--serif);
+      color: rgba(184,155,102,.88);
+      font-size: 2rem;
+    }
+    .service-thumb {
+      padding: .9rem !important;
+      align-self: stretch;
+    }
+    .service-thumb img {
+      width: 100%;
+      height: 100%;
+      min-height: 8.6rem;
+      object-fit: cover;
+      border-radius: 1.2rem;
+      filter: saturate(.82) contrast(.96) brightness(1.02);
+      box-shadow: 0 14px 35px rgba(24,20,17,.075);
+    }
+    .service-row p { color: var(--muted); max-width: 38rem; }
+    .service-row .detail {
+      display: flex;
+      align-items: end;
+      justify-content: flex-end;
+      font-size: .76rem;
+      text-transform: uppercase;
+      letter-spacing: .18em;
+      color: var(--taupe);
+      border-left: 1px solid rgba(42,36,32,.09);
+    }
+
+    .experience {
+      padding-top: clamp(6rem, 11vw, 10rem);
+    }
+    .exp-grid {
+      display: grid;
+      grid-template-columns: 1fr .92fr;
+      gap: clamp(2rem, 7vw, 6rem);
+      align-items: center;
+    }
+    .exp-panel {
+      padding: clamp(2rem, 6vw, 4.2rem);
+      background: var(--deep);
+      color: var(--white);
+      border-radius: 2.4rem;
+      position: relative;
+      overflow: hidden;
+      min-height: 31rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+    .exp-panel::before {
+      content: "";
+      position: absolute;
+      inset: 1rem;
+      border: 1px solid rgba(248,243,235,.14);
+      border-radius: 1.8rem;
+    }
+    .exp-panel h2, .exp-panel p { color: inherit; position: relative; }
+    .exp-panel p { color: rgba(255,250,243,.68); margin-top: 1.3rem; max-width: 35rem; }
+    .exp-image {
+      height: 43rem;
+      border-radius: 1.4rem 8rem 1.4rem 1.4rem;
+      object-fit: cover;
+      filter: saturate(.82) contrast(.96);
+    }
+    .demo-note {
+      margin-top: 1.4rem;
+      font-size: .8rem;
+      color: rgba(255,250,243,.52);
+    }
+
+    .values {
+      display: grid;
+      grid-template-columns: .7fr 1fr;
+      gap: clamp(2.5rem, 8vw, 7rem);
+      align-items: start;
+    }
+    .values-list {
+      display: grid;
+      gap: 0;
+      border-top: 1px solid var(--line);
+    }
+    .value {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 1.5rem;
+      padding: 1.55rem 0;
+      border-bottom: 1px solid var(--line);
+    }
+    .value b {
+      font-family: var(--serif);
+      font-size: 1.55rem;
+      font-weight: 400;
+      letter-spacing: -.03em;
+      color: var(--deep);
+    }
+    .value span { color: var(--muted); }
+
+    .zone {
+      background:
+        linear-gradient(rgba(248,243,235,.87), rgba(248,243,235,.87)),
+        url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1800&q=82") center/cover;
+    }
+    .zone-card {
+      width: min(100%, 46rem);
+      margin-left: auto;
+      padding: clamp(2rem, 6vw, 4.2rem);
+      background: rgba(255,250,243,.78);
+      border: 1px solid rgba(255,250,243,.72);
+      border-radius: 2.4rem;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(16px);
+    }
+    .places {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .72rem;
+      margin-top: 2rem;
+    }
+    .places span {
+      border: 1px solid rgba(42,36,32,.12);
+      border-radius: 999px;
+      padding: .68rem 1rem;
+      background: rgba(255,255,255,.28);
+      color: var(--deep);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .82fr .95fr;
+      grid-template-rows: 18rem 12rem 20rem;
+      gap: 1rem;
+    }
+    .shot {
+      overflow: hidden;
+      border-radius: 1.4rem;
+      background: var(--linen);
+      position: relative;
+    }
+    .shot img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(.82) contrast(.96);
+      transition: transform 1.1s var(--soft);
+    }
+    .shot:nth-child(1) img { object-position: center 62%; }
+    .shot:nth-child(2) img { object-position: center 58%; }
+    .shot:nth-child(3) img { object-position: center 48%; }
+    .shot:nth-child(4) img { object-position: center 42%; }
+    .shot:nth-child(5) img { object-position: center 66%; }
+    .shot:nth-child(6) img { object-position: center 56%; }
+    .shot:hover img { transform: scale(1.045); }
+    .shot:nth-child(1) { grid-row: span 2; border-radius: 10rem 10rem 1.4rem 1.4rem; }
+    .shot:nth-child(2) { grid-column: span 2; }
+    .shot:nth-child(4) { grid-column: span 2; }
+    .shot figcaption {
+      position: absolute;
+      left: 1rem;
+      bottom: 1rem;
+      padding: .55rem .8rem;
+      border-radius: 999px;
+      background: rgba(255,250,243,.72);
+      backdrop-filter: blur(10px);
+      font-size: .74rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--deep);
+    }
+
+    .testimonials {
+      background: #f1e7dc;
+    }
+    .voices {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr .86fr;
+      gap: 1rem;
+      align-items: start;
+    }
+    .voice {
+      padding: clamp(1.5rem, 4vw, 2.5rem);
+      background: rgba(255,250,243,.58);
+      border: 1px solid rgba(42,36,32,.08);
+      border-radius: 1.7rem;
+    }
+    .voice:nth-child(2) { margin-top: 3.2rem; }
+    .voice p {
+      font-family: var(--serif);
+      font-size: clamp(1.35rem, 2.8vw, 2.05rem);
+      line-height: 1.16;
+      letter-spacing: -.03em;
+      color: var(--deep);
+    }
+    .voice small {
+      display: block;
+      margin-top: 1.3rem;
+      color: var(--taupe);
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: .72rem;
+    }
+
+    .faq-contact {
+      display: grid;
+      grid-template-columns: .9fr 1.1fr;
+      gap: clamp(2.2rem, 7vw, 5rem);
+      align-items: start;
+    }
+    details {
+      border-bottom: 1px solid var(--line);
+      padding: 1.15rem 0;
+    }
+    summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-family: var(--serif);
+      font-size: 1.45rem;
+      color: var(--deep);
+      line-height: 1.2;
+    }
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      color: var(--gold);
+      transition: transform .35s var(--soft);
+    }
+    details[open] summary::after { transform: rotate(45deg); }
+    details p { color: var(--muted); padding: .9rem 2rem .25rem 0; }
+
+    .contact-card {
+      background: var(--white);
+      border: 1px solid rgba(42,36,32,.09);
+      border-radius: 2.2rem;
+      padding: clamp(1.35rem, 4vw, 2.5rem);
+      box-shadow: var(--shadow);
+    }
+    form { display: grid; gap: 1rem; margin-top: 1.6rem; }
+    .field {
+      display: grid;
+      gap: .45rem;
+    }
+    label {
+      font-size: .75rem;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+      color: var(--taupe);
+    }
+    input, textarea, select {
+      width: 100%;
+      border: 1px solid rgba(42,36,32,.14);
+      border-radius: 1rem;
+      background: #fffbf6;
+      color: var(--deep);
+      padding: .95rem 1rem;
+      outline: none;
+      transition: border-color .3s var(--soft), box-shadow .3s var(--soft);
+    }
+    textarea { min-height: 8rem; resize: vertical; }
+    input:focus, textarea:focus, select:focus, button:focus-visible, a:focus-visible {
+      border-color: rgba(184,155,102,.8);
+      box-shadow: 0 0 0 4px rgba(184,155,102,.15);
+      outline: none;
+    }
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .form-status {
+      min-height: 1.5rem;
+      color: #5d4938;
+      font-size: .92rem;
+    }
+
+    .floating {
+      position: fixed;
+      right: 1rem;
+      bottom: 1rem;
+      z-index: 45;
+      display: grid;
+      gap: .55rem;
+    }
+    .float-btn {
+      width: 3.25rem;
+      height: 3.25rem;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: var(--deep);
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 12px 36px rgba(24,20,17,.18);
+      transition: transform .35s var(--soft);
+      font-size: 1.05rem;
+    }
+    .float-btn:hover { transform: translateY(-3px); }
+    .float-btn.whatsapp { background: #4c5d45; }
+
+    footer {
+      background: var(--deep);
+      color: var(--white);
+      padding: 4rem 0 1.5rem;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.2fr .7fr .7fr;
+      gap: 2rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid rgba(255,250,243,.12);
+    }
+    footer h2 { color: var(--white); font-size: clamp(2.5rem, 6vw, 5.5rem); }
+    footer p, footer a { color: rgba(255,250,243,.68); }
+    footer .brand span { color: rgba(255,250,243,.55); }
+    footer .brand strong { color: var(--white); }
+    .foot-col {
+      display: grid;
+      gap: .55rem;
+      align-content: start;
+    }
+    .foot-col b {
+      font-size: .75rem;
+      text-transform: uppercase;
+      letter-spacing: .16em;
+      color: var(--gold);
+      margin-bottom: .4rem;
+    }
+    .copyright {
+      padding-top: 1.4rem;
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      font-size: .78rem;
+      color: rgba(255,250,243,.45);
+    }
+
+    [data-reveal] {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .9s var(--soft), transform .9s var(--soft);
+    }
+    [data-reveal].visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+
+    /* Loader signature — fleur de soin premium, 0 à 100% en 3 secondes */
+    body.is-loading { overflow: hidden; }
+
+    body.is-loading header,
+    body.is-loading main,
+    body.is-loading .floating,
+    body.is-loading footer {
+      visibility: hidden;
+    }
+
+    body.is-loading .lux-loader {
+      visibility: visible;
+    }
+
+    .lux-loader {
+      --loader-progress: 0;
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: grid;
+      place-items: center;
+      color: var(--deep);
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255, 250, 243, .98) 0 15rem, rgba(248, 243, 235, .92) 34rem, rgba(217, 197, 182, .96) 100%),
+        linear-gradient(135deg, #fbf7f1, var(--linen));
+      overflow: hidden;
+      transition: opacity .78s var(--soft), visibility .78s var(--soft), transform .78s var(--soft);
+    }
+
+    .lux-loader::before {
+      content: "";
+      position: absolute;
+      width: min(88vw, 52rem);
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background:
+        radial-gradient(circle, transparent 0 54%, rgba(184, 155, 102, .12) 55% 55.25%, transparent 56%),
+        conic-gradient(from -90deg, rgba(184, 155, 102, .22) calc(var(--loader-progress) * 1%), rgba(42, 36, 32, .045) 0);
+      mask: radial-gradient(circle, transparent 0 52%, #000 52.4% 54.6%, transparent 55%);
+      opacity: .9;
+      transform: rotate(-18deg);
+    }
+
+    .lux-loader::after {
+      content: "";
+      position: absolute;
+      width: 24rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(184, 155, 102, .16), transparent 68%);
+      filter: blur(18px);
+      animation: loaderAura 3s var(--soft) infinite alternate;
+    }
+
+    .lux-loader.is-done {
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.018);
+      pointer-events: none;
+    }
+
+    .loader-grain {
+      position: absolute;
+      inset: 0;
+      opacity: .16;
+      mix-blend-mode: multiply;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23g)' opacity='.18'/%3E%3C/svg%3E");
+    }
+
+    .loader-card {
+      position: relative;
+      z-index: 2;
+      width: min(90vw, 31rem);
+      padding: clamp(2.1rem, 7vw, 4.35rem) clamp(1.5rem, 6vw, 3.35rem);
+      text-align: center;
+      border: 1px solid rgba(255, 250, 243, .72);
+      border-radius: 2.7rem;
+      background: linear-gradient(180deg, rgba(255, 250, 243, .78), rgba(255, 250, 243, .44));
+      box-shadow: 0 34px 120px rgba(24, 20, 17, .12);
+      backdrop-filter: blur(26px);
+      overflow: hidden;
+      animation: loaderCardIn .9s var(--soft) both;
+    }
+
+    .loader-card::before {
+      content: "";
+      position: absolute;
+      inset: -45% -70%;
+      background: linear-gradient(115deg, transparent 38%, rgba(255, 255, 255, .7) 50%, transparent 62%);
+      transform: translateX(-45%) rotate(8deg);
+      animation: loaderSheen 2.8s var(--soft) .18s both;
+    }
+
+    .loader-brand {
+      position: relative;
+      display: grid;
+      gap: .18rem;
+      margin-bottom: 2rem;
+    }
+
+    .loader-brand strong {
+      font-family: var(--serif);
+      font-size: clamp(2.35rem, 10vw, 4.75rem);
+      font-weight: 400;
+      line-height: .86;
+      letter-spacing: -.065em;
+    }
+
+    .loader-brand span {
+      color: var(--taupe);
+      font-size: .66rem;
+      font-weight: 600;
+      letter-spacing: .24em;
+      text-transform: uppercase;
+    }
+
+    .loader-ritual {
+      position: relative;
+      width: 11.4rem;
+      height: 9.8rem;
+      margin: 0 auto 1.65rem;
+      display: grid;
+      place-items: center;
+      isolation: isolate;
+    }
+
+    .loader-ritual::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      bottom: .08rem;
+      width: 8.8rem;
+      height: 1.35rem;
+      border-radius: 50%;
+      background: radial-gradient(ellipse, rgba(24, 20, 17, .14), transparent 70%);
+      transform: translateX(-50%);
+      filter: blur(8px);
+      opacity: .45;
+    }
+
+    .loader-lotus {
+      position: relative;
+      width: 9.2rem;
+      height: 8.35rem;
+      filter: drop-shadow(0 22px 28px rgba(24, 20, 17, .11));
+    }
+
+    .loader-petal {
+      position: absolute;
+      left: 50%;
+      bottom: .9rem;
+      width: 3.25rem;
+      height: 6.55rem;
+      border-radius: 80% 80% 52% 52% / 92% 92% 42% 42%;
+      background:
+        radial-gradient(circle at 42% 20%, rgba(255,255,255,.92), transparent 30%),
+        linear-gradient(160deg, rgba(255,250,243,.96), rgba(217,197,182,.9) 54%, rgba(184,155,102,.42));
+      border: 1px solid rgba(255, 250, 243, .74);
+      transform-origin: 50% 92%;
+      opacity: 0;
+      animation: petalBloom .9s var(--soft) forwards, petalBreath 2.2s var(--soft) .9s infinite;
+    }
+
+    .loader-petal:nth-child(1) { transform: translateX(-50%) rotate(-52deg) scale(.82); animation-delay: .10s, 1s; z-index: 1; }
+    .loader-petal:nth-child(2) { transform: translateX(-50%) rotate(52deg) scale(.82); animation-delay: .16s, 1.05s; z-index: 1; }
+    .loader-petal:nth-child(3) { transform: translateX(-50%) rotate(-30deg) scale(.94); animation-delay: .24s, 1.1s; z-index: 2; }
+    .loader-petal:nth-child(4) { transform: translateX(-50%) rotate(30deg) scale(.94); animation-delay: .30s, 1.15s; z-index: 2; }
+    .loader-petal:nth-child(5) { transform: translateX(-50%) rotate(-13deg) scale(1.02); animation-delay: .38s, 1.2s; z-index: 3; }
+    .loader-petal:nth-child(6) { transform: translateX(-50%) rotate(13deg) scale(1.02); animation-delay: .44s, 1.25s; z-index: 3; }
+    .loader-petal:nth-child(7) { transform: translateX(-50%) rotate(0deg) scale(1.08); animation-delay: .52s, 1.3s; z-index: 4; }
+
+    .loader-serum {
+      position: absolute;
+      left: 50%;
+      top: .95rem;
+      z-index: 6;
+      width: 1.05rem;
+      height: 1.45rem;
+      border-radius: 60% 60% 68% 68% / 72% 72% 46% 46%;
+      background:
+        radial-gradient(circle at 38% 24%, rgba(255,255,255,.95) 0 .15rem, transparent .18rem),
+        linear-gradient(155deg, #fffaf3, rgba(184,155,102,.72));
+      box-shadow: 0 10px 24px rgba(184,155,102,.28);
+      transform: translateX(-50%) translateY(-.25rem) rotate(7deg);
+      animation: serumDrop 3s var(--soft) both;
+    }
+
+    .loader-spark {
+      position: absolute;
+      z-index: 7;
+      width: .42rem;
+      height: .42rem;
+      border-radius: 50%;
+      background: rgba(184, 155, 102, .92);
+      box-shadow: 0 0 18px rgba(184, 155, 102, .55);
+      opacity: 0;
+      animation: sparkle 2.4s var(--soft) infinite;
+    }
+
+    .loader-spark:nth-of-type(9) { left: 1.4rem; top: 2.25rem; animation-delay: .65s; }
+    .loader-spark:nth-of-type(10) { right: 1.25rem; top: 3.6rem; animation-delay: 1.05s; }
+    .loader-spark:nth-of-type(11) { left: 3.1rem; bottom: 1.1rem; animation-delay: 1.45s; }
+
+    .loader-copy {
+      position: relative;
+      margin: 0 auto 1.45rem;
+      max-width: 20rem;
+      color: var(--muted);
+      font-size: .94rem;
+      line-height: 1.6;
+    }
+
+    .loader-progress {
+      position: relative;
+      height: 1px;
+      width: 100%;
+      background: rgba(42, 36, 32, .12);
+      overflow: hidden;
+    }
+
+    .loader-progress span {
+      position: absolute;
+      inset: 0 auto 0 0;
+      width: calc(var(--loader-progress, 0) * 1%);
+      background: linear-gradient(90deg, rgba(184, 155, 102, .25), rgba(184, 155, 102, 1), rgba(255, 250, 243, .9));
+      box-shadow: 0 0 18px rgba(184, 155, 102, .34);
+    }
+
+    .loader-meta {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 1rem;
+      margin-top: .82rem;
+      color: var(--taupe);
+      font-size: .68rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+    }
+
+    .loader-percent {
+      font-family: var(--serif);
+      color: var(--deep);
+      font-size: 1.85rem;
+      letter-spacing: -.04em;
+      line-height: 1;
+    }
+
+    @keyframes loaderAura {
+      from { transform: translate3d(-6%, -4%, 0) scale(.92); opacity: .42; }
+      to { transform: translate3d(7%, 5%, 0) scale(1.1); opacity: .7; }
+    }
+
+    @keyframes loaderCardIn {
+      from { opacity: 0; transform: translateY(18px) scale(.98); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @keyframes loaderSheen {
+      0% { transform: translateX(-48%) rotate(8deg); opacity: 0; }
+      18% { opacity: .85; }
+      100% { transform: translateX(48%) rotate(8deg); opacity: 0; }
+    }
+
+    @keyframes petalBloom {
+      from { opacity: 0; filter: blur(8px); translate: 0 .65rem; }
+      to { opacity: 1; filter: blur(0); translate: 0 0; }
+    }
+
+    @keyframes petalBreath {
+      0%, 100% { translate: 0 0; }
+      50% { translate: 0 -.18rem; }
+    }
+
+    @keyframes serumDrop {
+      0% { opacity: 0; transform: translateX(-50%) translateY(-1.9rem) rotate(7deg) scale(.72); }
+      18% { opacity: 1; }
+      62% { transform: translateX(-50%) translateY(3.05rem) rotate(7deg) scale(1); opacity: 1; }
+      100% { transform: translateX(-50%) translateY(3.05rem) rotate(7deg) scale(.72); opacity: 0; }
+    }
+
+    @keyframes sparkle {
+      0%, 100% { opacity: 0; transform: scale(.45); }
+      35%, 58% { opacity: 1; transform: scale(1); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; }
+      [data-reveal] { opacity: 1; transform: none; }
+      .lux-loader, .lux-loader *, .lux-loader::before, .lux-loader::after { animation: none !important; transition: none !important; }
+    }
+
+    @media (max-width: 920px) {
+      .nav-links {
+        position: fixed;
+        inset: 4.5rem 1rem auto 1rem;
+        display: grid;
+        gap: .1rem;
+        background: rgba(255,250,243,.96);
+        backdrop-filter: blur(18px);
+        border: 1px solid rgba(42,36,32,.1);
+        border-radius: 1.5rem;
+        padding: 1.1rem;
+        box-shadow: var(--shadow);
+        transform: translateY(-14px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .35s var(--soft), transform .35s var(--soft);
+      }
+      .menu-open .nav-links { opacity: 1; transform: translateY(0); pointer-events: auto; }
+      .nav-links a { padding: .9rem; }
+      .nav-actions .mini-call { display: none; }
+      .burger { display: block; }
+      .hero-grid, .intro, .section-head, .exp-grid, .values, .faq-contact, .footer-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-card { justify-self: start; width: min(100%, 28rem); }
+      .hero-copy { padding-bottom: 1rem; }
+      .service-row { grid-template-columns: .18fr .34fr 1fr; }
+      .service-row .detail {
+        grid-column: 3;
+        justify-content: flex-start;
+        border-left: 0;
+        border-top: 1px solid rgba(42,36,32,.08);
+        padding-top: 0;
+      }
+      .exp-image { height: 30rem; border-radius: 1.4rem 5rem 1.4rem 1.4rem; }
+      .voices { grid-template-columns: 1fr; }
+      .voice:nth-child(2) { margin-top: 0; }
+      .gallery-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 16rem 14rem 18rem 14rem;
+      }
+      .shot:nth-child(1), .shot:nth-child(2), .shot:nth-child(4) { grid-column: auto; grid-row: auto; }
+      .shot:first-child { grid-column: span 2; }
+      .zone-card { margin-left: 0; }
+    }
+
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 28px, 1120px); }
+      header { padding: .6rem 0; }
+      .brand strong { font-size: 1.35rem; }
+      .hero { padding-top: 6.5rem; }
+      h1 { font-size: clamp(3.2rem, 18vw, 5.1rem); }
+      h2 { font-size: clamp(2.4rem, 13vw, 3.7rem); }
+      .hero-cta, .form-row { grid-template-columns: 1fr; display: grid; width: 100%; }
+      .btn { width: 100%; }
+      .intro-art { min-height: 25rem; }
+      .intro-art .tall { height: 24rem; width: 78%; }
+      .intro-art .small { width: 55%; height: 12rem; border-width: .45rem; }
+      .service-row {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .service-row .num { padding-bottom: 0; }
+      .service-thumb { padding: 0 1.15rem .3rem !important; }
+      .service-thumb img { height: 12rem; min-height: 12rem; }
+      .service-row .detail { grid-column: auto; padding: 0 1.15rem 1.25rem; border-top: 0; }
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(6, 15rem);
+      }
+      .shot:first-child { grid-column: auto; }
+      .footer-grid { gap: 2.6rem; }
+      .copyright { flex-direction: column; }
+      .floating { right: .75rem; bottom: .75rem; }
+      .float-btn { width: 3rem; height: 3rem; }
+    }
+  </style>
+</head>
+<body class="is-loading">
+
+<div class="lux-loader" id="luxLoader" role="status" aria-live="polite" aria-label="Chargement de Maison Éliane">
+  <div class="loader-grain" aria-hidden="true"></div>
+  <div class="loader-card">
+    <div class="loader-brand">
+      <strong>Maison Éliane</strong>
+      <span>Rituel de beauté en préparation</span>
+    </div>
+    <div class="loader-ritual" aria-hidden="true">
+      <div class="loader-lotus">
+        <span class="loader-petal"></span>
+        <span class="loader-petal"></span>
+        <span class="loader-petal"></span>
+        <span class="loader-petal"></span>
+        <span class="loader-petal"></span>
+        <span class="loader-petal"></span>
+        <span class="loader-petal"></span>
+        <span class="loader-serum"></span>
+        <span class="loader-spark"></span>
+        <span class="loader-spark"></span>
+        <span class="loader-spark"></span>
+      </div>
+    </div>
+    <p class="loader-copy">Une fleur de soin s’ouvre, une goutte de sérum réveille la lumière.</p>
+    <div class="loader-progress" aria-hidden="true"><span id="loaderBar"></span></div>
+    <div class="loader-meta">
+      <span>Soin sur mesure</span>
+      <strong class="loader-percent" id="loaderPercent">0%</strong>
+    </div>
+  </div>
+</div>
+<div aria-hidden="true" class="grain"></div>
+<header id="siteHeader">
+<div class="wrap nav">
+<a aria-label="Maison Éliane, accueil" class="brand" href="#accueil">
+<strong>Maison Éliane</strong>
+<span>Institut privé · Riaillé</span>
+</a>
+<nav aria-label="Navigation principale" class="nav-links" id="mobileMenu">
+<a href="#institut">L’institut</a>
+<a href="#soins">Soins</a>
+<a href="#experience">Expérience</a>
+<a href="#galerie">Galerie</a>
+<a href="#contact">Réserver</a>
+</nav>
+<div class="nav-actions">
+<a class="mini-call" href="tel:+33240000000">02 40 00 00 00</a>
+<button aria-controls="mobileMenu" aria-expanded="false" aria-label="Ouvrir le menu" class="burger" id="burger" type="button">
+<span></span><span></span>
+</button>
+</div>
+</div>
+</header>
+<main>
+<section class="hero" id="accueil">
+<div aria-hidden="true" class="hero-bg">
+<img alt="" decoding="async" fetchpriority="high" loading="eager" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&amp;fit=crop&amp;w=2200&amp;q=85"/>
+</div>
+<div class="wrap hero-grid">
+<div class="hero-copy" data-reveal="">
+<span class="eyebrow">Beauté confidentielle en Loire-Atlantique</span>
+<h1>L’art du soin dans une maison calme.</h1>
+<p class="lead">À Riaillé, Maison Éliane reçoit les femmes qui recherchent un moment précis, délicat et profondément apaisant, entre gestuelle experte, textures naturelles et attention sincère.</p>
+<div class="hero-cta">
+<a class="btn" href="#contact">Demander un rendez-vous</a>
+<a class="btn alt" href="https://wa.me/33240000000" rel="noopener" target="_blank">Écrire sur WhatsApp</a>
+</div>
+</div>
+<aside class="hero-card" data-reveal="">
+<img alt="Manucure naturelle dans une ambiance douce et premium" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?auto=format&amp;fit=crop&amp;w=900&amp;q=86"/>
+<p>Rituels visage, mains, corps et regard, composés avec exigence selon votre peau, votre rythme et votre besoin du jour.</p>
+</aside>
+</div>
+</section>
+<section id="institut">
+<div class="wrap intro">
+<div class="intro-art" data-reveal="">
+<img alt="Soin du visage apaisant en institut de beauté" class="tall" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/>
+<img alt="Application d’un masque visage relaxant" class="small" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1596178065887-1198b6148b2b?auto=format&amp;fit=crop&amp;w=900&amp;q=86"/>
+</div>
+<div class="intro-text" data-reveal="">
+<span class="eyebrow">Une adresse douce, jamais impersonnelle</span>
+<h2>Une beauté plus silencieuse, plus juste.</h2>
+<p class="lead">Maison Éliane a été imaginée comme un refuge intime : peu de bruit, peu de passages, aucun protocole pressé. Chaque rendez-vous commence par une écoute réelle, puis se construit autour de gestes mesurés et de soins choisis avec précision.</p>
+<p class="signature">Ici, l’élégance se voit dans les détails : une serviette chaude au bon moment, une lumière qui n’agresse pas, une peau respectée, un résultat naturel et une sensation durable de calme.</p>
+<a class="link" href="#soins">Découvrir les soins</a>
+</div>
+</div>
+</section>
+<section class="services" id="soins">
+<div class="wrap">
+<div class="section-head" data-reveal="">
+<div>
+<span class="eyebrow">La carte essentielle</span>
+<h2>Des soins pensés avec retenue.</h2>
+</div>
+<p class="lead">Une sélection courte, maîtrisée et modulable, pour préserver la qualité du geste et la justesse du conseil.</p>
+</div>
+<div class="service-rail" data-reveal="">
+<article class="service-row">
+<div class="num">01</div><div class="service-thumb"><img alt="Visuel soin du visage adapté aux peaux sensibles" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=720&amp;q=84"/></div>
+<div><h3>Soins du visage</h3><p>Nettoyage profond, massage sculptant doux, masques confort et protocoles éclat adaptés aux peaux sensibles, fatiguées ou déshydratées.</p></div>
+<div class="detail">45 à 75 min</div>
+</article>
+<article class="service-row">
+<div class="num">02</div><div class="service-thumb"><img alt="Visuel massage relaxant aux huiles" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&amp;fit=crop&amp;w=720&amp;q=84"/></div>
+<div><h3>Massages relaxants</h3><p>Gestes enveloppants, pressions lentes et respiration guidée pour relâcher les tensions et retrouver une présence corporelle apaisée.</p></div>
+<div class="detail">Sur mesure</div>
+</article>
+<article class="service-row">
+<div class="num">03</div><div class="service-thumb"><img alt="Visuel rituel beauté et peau nette" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&amp;fit=crop&amp;w=720&amp;q=84"/></div>
+<div><h3>Épilation</h3><p>Épilation nette, hygiène rigoureuse, cire de qualité et finitions soignées pour un résultat propre sans sensation d’abattage.</p></div>
+<div class="detail">Femme</div>
+</article>
+<article class="service-row">
+<div class="num">04</div><div class="service-thumb"><img alt="Visuel manucure naturelle et finitions soignées" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&amp;fit=crop&amp;w=720&amp;q=84"/></div>
+<div><h3>Manucure</h3><p>Beauté des mains, soin des cuticules, pose naturelle et finitions élégantes, sans surcharge, pour des mains impeccables au quotidien.</p></div>
+<div class="detail">Mains &amp; ongles</div>
+</article>
+<article class="service-row">
+<div class="num">05</div><div class="service-thumb"><img alt="Visuel rituel corps avec serviettes et ambiance spa" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&amp;fit=crop&amp;w=720&amp;q=84"/></div>
+<div><h3>Soins corps</h3><p>Gommage, hydratation, modelage ciblé et textures réconfortantes pour lisser, nourrir et alléger les sensations de fatigue.</p></div>
+<div class="detail">Rituel complet</div>
+</article>
+<article class="service-row">
+<div class="num">06</div><div class="service-thumb"><img alt="Visuel beauté du regard et sourcils naturels" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&amp;fit=crop&amp;w=720&amp;q=84"/></div>
+<div><h3>Beauté du regard</h3><p>Structuration des sourcils, teinture discrète et mise en valeur naturelle du regard, avec un rendu net mais jamais figé.</p></div>
+<div class="detail">Finition douce</div>
+</article>
+</div>
+</div>
+</section>
+<section class="experience" id="experience">
+<div class="wrap exp-grid">
+<div class="exp-panel" data-reveal="">
+<span class="eyebrow">Expérience personnalisée</span>
+<h2>Un rendez-vous qui ne ressemble pas au précédent.</h2>
+<p>Avant chaque soin, un court échange permet d’ajuster la pression, les textures, les zones de confort et les priorités. La cabine reste volontairement sobre : matières naturelles, silence choisi, lumière basse, parfum végétal très léger.</p>
+<p class="demo-note">Site de démonstration créé pour présenter l’univers d’un institut fictif basé à Riaillé.</p>
+</div>
+<img alt="Cabine de massage relaxant avec lumière chaude" class="exp-image" data-reveal="" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/>
+</div>
+</section>
+<section>
+<div class="wrap values">
+<div data-reveal="">
+<span class="eyebrow">Ce qui guide la maison</span>
+<h2>Une exigence discrète.</h2>
+</div>
+<div class="values-list" data-reveal="">
+<div class="value"><b>Écoute</b><span>Chaque soin commence par votre état du moment : peau, fatigue, sensibilité, envies et contraintes réelles.</span></div>
+<div class="value"><b>Expertise</b><span>Des gestes sûrs, lents quand il le faut, précis quand le résultat l’exige, toujours au service d’une beauté naturelle.</span></div>
+<div class="value"><b>Produits de qualité</b><span>Des textures sélectionnées pour leur confort, leur tolérance et leur sensorialité, sans parfum agressif.</span></div>
+<div class="value"><b>Ambiance apaisante</b><span>Une cabine enveloppante, des transitions douces et un rythme pensé pour vous laisser redescendre.</span></div>
+<div class="value"><b>Accompagnement</b><span>Des conseils simples à refaire chez soi, sans injonction ni surconsommation.</span></div>
+</div>
+</div>
+</section>
+<section class="zone" id="zone">
+<div class="wrap">
+<div class="zone-card" data-reveal="">
+<span class="eyebrow">Proximité locale</span>
+<h2>Riaillé comme point d’ancrage.</h2>
+<p class="lead">Maison Éliane accueille sur rendez-vous à Riaillé et accompagne une clientèle venant des communes voisines, dans un esprit confidentiel et chaleureux.</p>
+<div aria-label="Zone d’intervention" class="places">
+<span>Riaillé</span>
+<span>Châteaubriant</span>
+<span>Nort-sur-Erdre</span>
+<span>Ancenis</span>
+<span>Joué-sur-Erdre</span>
+<span>Teillé</span>
+<span>Alentours</span>
+</div>
+</div>
+</div>
+</section>
+<section id="galerie">
+<div class="wrap">
+<div class="section-head" data-reveal="">
+<div>
+<span class="eyebrow">Matières, gestes, lumière</span>
+<h2>Fragments d’ambiance.</h2>
+</div>
+<p class="lead">Une galerie pensée comme un carnet sensoriel : la peau, les mains, les produits, la cabine et les silences entre deux gestes.</p>
+</div>
+<div class="gallery-grid" data-reveal="">
+<figure class="shot"><img alt="Textures cosmétiques naturelles et flacons de soin" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?auto=format&amp;fit=crop&amp;w=1000&amp;q=86"/><figcaption>Textures naturelles</figcaption></figure>
+<figure class="shot"><img alt="Massage relaxant avec serviettes et huiles de soin" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?auto=format&amp;fit=crop&amp;w=1300&amp;q=86"/><figcaption>Massage</figcaption></figure>
+<figure class="shot"><img alt="Cabine spa élégante aux tons chauds" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?auto=format&amp;fit=crop&amp;w=900&amp;q=86"/><figcaption>Cabine</figcaption></figure>
+<figure class="shot"><img alt="Soin visage professionnel et gestes doux" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&amp;fit=crop&amp;w=1200&amp;q=86"/><figcaption>Soin visage</figcaption></figure>
+<figure class="shot"><img alt="Manucure élégante et naturelle" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&amp;fit=crop&amp;w=900&amp;q=86"/><figcaption>Mains</figcaption></figure>
+<figure class="shot"><img alt="Salon d’attente chaleureux et calme" decoding="async" loading="lazy" src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&amp;fit=crop&amp;w=900&amp;q=86"/><figcaption>Calme</figcaption></figure>
+</div>
+</div>
+</section>
+<section class="testimonials">
+<div class="wrap">
+<div class="section-head" data-reveal="">
+<div>
+<span class="eyebrow">Paroles de clientes</span>
+<h2>Ce qu’elles retiennent.</h2>
+</div>
+<p class="lead">Avis fictifs rédigés pour cette démonstration, dans un ton naturel et fidèle à l’expérience imaginée.</p>
+</div>
+<div class="voices" data-reveal="">
+<article class="voice"><p>“J’ai aimé le calme dès l’arrivée. Le soin du visage était précis, très doux, et ma peau n’a pas réagi comme ailleurs.”</p><small>Claire · Nort-sur-Erdre</small></article>
+<article class="voice"><p>“On ne se sent pas poussée à acheter. Les conseils sont simples, honnêtes, et le massage m’a vraiment aidée à relâcher.”</p><small>Marion · Ancenis</small></article>
+<article class="voice"><p>“Une adresse discrète, très soignée. La manucure est élégante, fine, exactement ce que je cherchais.”</p><small>Élodie · Châteaubriant</small></article>
+</div>
+</div>
+</section>
+<section id="contact">
+<div class="wrap faq-contact">
+<div data-reveal="">
+<span class="eyebrow">Questions fréquentes</span>
+<h2>Avant de venir.</h2>
+<div style="margin-top:2rem">
+<details>
+<summary>Faut-il réserver longtemps à l’avance ?</summary>
+<p>Pour préserver des créneaux calmes, les rendez-vous sont espacés. Une réservation quelques jours avant est préférable, surtout le vendredi et le samedi.</p>
+</details>
+<details>
+<summary>Les soins conviennent-ils aux peaux sensibles ?</summary>
+<p>Oui, un échange en début de séance permet d’adapter les textures, le rythme et les zones travaillées selon votre tolérance.</p>
+</details>
+<details>
+<summary>Puis-je offrir un soin ?</summary>
+<p>Une carte cadeau fictive peut être préparée pour cette démonstration, avec un rituel visage, corps ou mains selon la personne.</p>
+</details>
+<details>
+<summary>Intervenez-vous à domicile ?</summary>
+<p>L’institut reçoit principalement à Riaillé. Des demandes spécifiques autour de Châteaubriant, Nort-sur-Erdre ou Ancenis peuvent être étudiées.</p>
+</details>
+</div>
+</div>
+<aside class="contact-card" data-reveal="">
+<span class="eyebrow">Réservation</span>
+<h2>Écrire à la maison.</h2>
+<p class="lead">Décrivez simplement le soin souhaité, vos disponibilités et votre besoin. Une réponse fictive de confirmation s’affichera après l’envoi.</p>
+<form id="bookingForm">
+<div class="form-row">
+<div class="field">
+<label for="name">Nom</label>
+<input autocomplete="name" id="name" name="name" placeholder="Votre nom" required=""/>
+</div>
+<div class="field">
+<label for="phone">Téléphone</label>
+<input autocomplete="tel" id="phone" name="phone" placeholder="06 00 00 00 00" required=""/>
+</div>
+</div>
+<div class="field">
+<label for="email">Email</label>
+<input autocomplete="email" id="email" name="email" placeholder="vous@email.fr" required="" type="email"/>
+</div>
+<div class="field">
+<label for="care">Soin souhaité</label>
+<select id="care" name="care" required="">
+<option value="">Choisir un soin</option>
+<option>Soin du visage</option>
+<option>Massage relaxant</option>
+<option>Épilation</option>
+<option>Manucure</option>
+<option>Soin corps</option>
+<option>Beauté du regard</option>
+</select>
+</div>
+<div class="field">
+<label for="message">Message</label>
+<textarea id="message" name="message" placeholder="Vos disponibilités, besoins ou questions" required=""></textarea>
+</div>
+<button class="btn" type="submit">Envoyer la demande</button>
+<p aria-live="polite" class="form-status" id="formStatus" role="status"></p>
+</form>
+</aside>
+</div>
+</section>
+</main>
+<div aria-label="Contacts rapides" class="floating">
+<a aria-label="Appeler Maison Éliane" class="float-btn" href="tel:+33240000000">☎</a>
+<a aria-label="Contacter Maison Éliane sur WhatsApp" class="float-btn whatsapp" href="https://wa.me/33240000000" rel="noopener" target="_blank">✦</a>
+</div>
+<footer>
+<div class="wrap">
+<div class="footer-grid">
+<div class="foot-col">
+<a class="brand" href="#accueil">
+<strong>Maison Éliane</strong>
+<span>Institut privé · Riaillé</span>
+</a>
+<h2>Prendre soin, sans bruit.</h2>
+</div>
+<div class="foot-col">
+<b>Coordonnées</b>
+<a href="tel:+33240000000">02 40 00 00 00</a>
+<a href="mailto:contact@institut-riaille.fr">contact@institut-riaille.fr</a>
+<p>Riaillé, Loire-Atlantique</p>
+</div>
+<div class="foot-col">
+<b>Navigation</b>
+<a href="#institut">L’institut</a>
+<a href="#soins">Soins</a>
+<a href="#zone">Zone d’intervention</a>
+<a href="#contact">Réservation</a>
+</div>
+</div>
+<div class="copyright">
+<span>© 2026 Maison Éliane — Site vitrine fictif de démonstration.</span>
+<span>Riaillé · Châteaubriant · Nort-sur-Erdre · Ancenis</span>
+</div>
+</div>
+</footer>
+<script>
+    const header = document.getElementById("siteHeader");
+    const burger = document.getElementById("burger");
+    const menuLinks = document.querySelectorAll(".nav-links a");
+    const form = document.getElementById("bookingForm");
+    const status = document.getElementById("formStatus");
+    const luxLoader = document.getElementById("luxLoader");
+    const loaderPercent = document.getElementById("loaderPercent");
+    const loaderBar = document.getElementById("loaderBar");
+
+    const startLuxuryLoader = () => {
+      if (!luxLoader || !loaderPercent || !loaderBar) return;
+      const duration = 3000;
+      const startedAt = performance.now();
+      const easeOutQuint = t => 1 - Math.pow(1 - t, 5);
+
+      const tick = now => {
+        const raw = Math.min((now - startedAt) / duration, 1);
+        const value = Math.round(easeOutQuint(raw) * 100);
+        loaderPercent.textContent = `${value}%`;
+        luxLoader.style.setProperty("--loader-progress", value);
+
+        if (raw < 1) {
+          requestAnimationFrame(tick);
+        } else {
+          loaderPercent.textContent = "100%";
+          luxLoader.style.setProperty("--loader-progress", 100);
+          window.setTimeout(() => {
+            luxLoader.classList.add("is-done");
+            document.body.classList.remove("is-loading");
+          }, 220);
+          window.setTimeout(() => luxLoader.remove(), 1100);
+        }
+      };
+
+      requestAnimationFrame(tick);
+    };
+
+    startLuxuryLoader();
+
+    const onScroll = () => {
+      header.classList.toggle("scrolled", window.scrollY > 28);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    burger.addEventListener("click", () => {
+      const isOpen = document.body.classList.toggle("menu-open");
+      burger.setAttribute("aria-expanded", String(isOpen));
+      burger.setAttribute("aria-label", isOpen ? "Fermer le menu" : "Ouvrir le menu");
+    });
+
+    menuLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        document.body.classList.remove("menu-open");
+        burger.setAttribute("aria-expanded", "false");
+        burger.setAttribute("aria-label", "Ouvrir le menu");
+      });
+    });
+
+    const revealItems = document.querySelectorAll("[data-reveal]");
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: .12, rootMargin: "0px 0px -40px 0px" });
+
+    revealItems.forEach(item => observer.observe(item));
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const name = new FormData(form).get("name") || "Votre demande";
+      status.textContent = `${name}, votre demande a bien été préparée. Maison Éliane vous recontacterait rapidement dans le cadre de cette démonstration.`;
+      form.reset();
+    });
+  </script>
+</body>
+</html>
